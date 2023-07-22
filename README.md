@@ -1,8 +1,5 @@
 # **go-nanoid**
 
-<img src="https://ai.github.io/nanoid/logo.svg" align="right"
-     alt="Nano ID logo by Anton Lovchikov" width="180" height="94">
-
 [![Build Status](https://github.com/jaevor/go-nanoid/workflows/tests/badge.svg)](https://github.com/jaevor/go-nanoid/actions)
 [![Build Status](https://github.com/jaevor/go-nanoid/workflows/lint/badge.svg)](https://github.com/jaevor/go-nanoid/actions)
 [![GitHub Issues](https://img.shields.io/github/issues/jaevor/go-nanoid.svg)](https://github.com/jaevor/go-nanoid/issues)
@@ -11,18 +8,10 @@
 
 [This module](https://pkg.go.dev/github.com/jaevor/go-nanoid) is a Go implementation of [ai/nanoid](https://github.com/ai/nanoid).
 
-Features of the nanoid spec are:
-
-- Uses a bigger alphabet than UUID, so a similar number of random bits are packed in just 21 chars instead of UUID's 36 chars
-- Much, much faster than UUID-V4
-
-## Install
-
 ```
 go get github.com/jaevor/go-nanoid
 ```
 
-## Example
 
 ```go
 import (
