@@ -44,6 +44,24 @@ func TestCustom(t *testing.T) {
 	})
 }
 
+func TestMustCustom(t *testing.T) {
+	t.Run("general", func(t *testing.T) {
+		f := nanoid.MustCustomASCII("abcdef", 21)
+		id := f()
+		assert.Len(t, id, 21, "should return the same length as the ID specified length")
+		t.Log(id)
+	})
+}
+
+func TestMustCustomPanic(t *testing.T) {
+	t.Run("general", func(t *testing.T) {
+		f := func() {
+			nanoid.MustCustomASCII("abcdef", 1)
+		}
+		assert.Panics(t, f, "MustCustomASCII should have paniced")
+	})
+}
+
 func TestFlatDistribution(t *testing.T) {
 	tries := 500_000
 

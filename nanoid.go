@@ -176,6 +176,24 @@ func CustomUnicode(alphabet string, length int) (generator, error) {
 }
 
 /*
+MustCustomASCII is like CustomASCII but panics if an error would have normally
+been returned It simplifies safe initialization of global variables
+
+Returns a Nano ID generator which uses a custom ASCII alphabet.
+
+🟡 Panics if alphabet is not valid ASCII or if length is not, or within 2-255.
+
+🧿 Concurrency safe.
+*/
+func MustCustomASCII(alphabet string, length int) generator {
+	genFunc, err := CustomASCII(alphabet, length)
+	if err != nil {
+		panic(`nanoid: CustomASCII(` + alphabet + `): ` + err.Error())
+	}
+	return genFunc
+}
+
+/*
 Returns a Nano ID generator which uses a custom ASCII alphabet.
 
 Uses less memory than CustomUnicode by only supporting ASCII.
